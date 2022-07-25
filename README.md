@@ -2,7 +2,7 @@
 
 Creates a base docker container that can execute the new version 2.1 of brainageR (author James Cole), can be found on https://github.com/james-cole/brainageR
 
-To build the docker you can use the following command, where 'brainimage' is the name of the docker, you can change this variable.
+To build the docker you can use the following command, where 'brainimage' is the name of the docker, you can change this variable. Ensure that brainageR script and neurodebian.gpg are in the same directory as Dockerfile.
 
        docker build . -f Dockerfile -t brainimage
 
