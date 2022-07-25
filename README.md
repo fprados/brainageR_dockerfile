@@ -1,5 +1,4 @@
 # brainageR_dockerfile
-brainageR dockerfile 
 
 Creates a base docker container that can execute the new version 2.1 of brainageR (author James Cole), can be found on https://github.com/james-cole/brainageR
 To build the docker you can use the following command, where 'brainimage' is the name of the docker, you can change this variable.
@@ -16,6 +15,10 @@ For linux, you must replace ${PWD} by ´pwd´. In this dockerfile, brainageR rel
 Links for required softwares:
 
 ·BrainageR: https://github.com/james-cole/brainageR
+
 ·SPM12(r7219): https://github.com/spm/spm12/archive/refs/tags/r7219.tar.gz
+
 ·OCTAVE patch (also works for SPM12 r7219): https://raw.githubusercontent.com/spm/spm-docker/main/octave/spm12_r7771.patch
+
 ·Nuerodebian.gpg file for FSL installation: https://github.com/PennBBL/fiberfox-wrapper/blob/master/neurodebian.gpg
+
