@@ -10,7 +10,7 @@ Once the docker is built, you can analyze an image with the following command:
 
        docker run --rm -it -v ${PWD}/your_data:/data -w /data docker.io/library/brainimage:latest brainageR -f sub-01_T1w_defaced.nii -o subj01_brain_predicted.age.csv
 
-'sub-01_T1w_defaced.nii' is the name of the MRI image decompressed in nii format placed in your_data folder, and 'subj01_brain_predicted.age.csv' the .csv file where the age predictions are saved. 
+'sub-01_T1w_defaced.nii' is the name of the MRI image decompressed in nii format placed in your_data folder, and 'subj01_brain_predicted.age.csv' is the .csv file where the age predictions are saved. 
 For linux, you must replace ${PWD} by ´pwd´. In this dockerfile, brainageR relies in Octave instead of Matlab.
 
 Links for required softwares:
