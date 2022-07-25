@@ -1,16 +1,16 @@
 # brainageR_dockerfile
 
-Dockerfile creates a base docker container that can execute the new version 2.1 of brainageR (author James Cole), can be found on https://github.com/james-cole/brainageR
+Dockerfile creates a base docker container that can execute the new version 2.1 of brainageR (author James Cole), can be found on https://github.com/james-cole/brainageR. Brainage R is a software for generating a brain-predicted age value from a raw T1-weighted MRI scan.
 
 To build the docker you can use the following command, where 'brainimage' is the name of the docker, you can change this variable. Ensure that brainageR script and neurodebian.gpg are in the same directory as Dockerfile.
 
        docker build . -f Dockerfile -t brainimage
 
-Once the docker is built, you can analyze an image with the following command:
+Once the docker is built, you can analyze a raw T1-weighted MRI scan with the following command:
 
        docker run --rm -it -v ${PWD}/your_data:/data -w /data docker.io/library/brainimage:latest brainageR -f sub-01_T1w_defaced.nii -o subj01_brain_predicted.age.csv
 
-'sub-01_T1w_defaced.nii' is the name of the MRI image decompressed in nii format placed in your_data folder, and 'subj01_brain_predicted.age.csv' is the .csv file where the age predictions are saved. 
+'sub-01_T1w_defaced.nii' is the name of the raw T1-weighted MRI scan decompressed in nii format placed in your_data folder, and 'subj01_brain_predicted.age.csv' is the .csv file where the age predictions are saved. 
 For linux, you must replace ${PWD} by ´pwd´. In this dockerfile, brainageR relies in Octave instead of Matlab.
 
 Links for required softwares:
