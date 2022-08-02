@@ -171,8 +171,6 @@ RUN cd /opt/brainageR/software &&\
 RUN cd /opt/brainageR/software &&\
       wget  https://github.com/james-cole/brainageR/releases/download/2.1/pca_scale.rds 
 
-
-
 # Install the needed packages
 RUN apt-get update
 RUN apt-get install -y --fix-missing \
