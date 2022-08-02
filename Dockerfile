@@ -188,8 +188,7 @@ curl
 
 # Install NiftyReg and NiftySeg from QNI bitbucket account
 RUN cd /opt && \
-  git clone https://github.com/KCL-BMEIS/niftyreg.git niftyreg && \
-  # git clone git@github.com:KCL-BMEIS/niftyreg.git niftyreg && \
+git clone https://github.com/KCL-BMEIS/niftyreg.git niftyreg && \
 cd niftyreg && \
 mkdir build-reg && \
 cd build-reg && \
@@ -204,7 +203,6 @@ make && \
 make install && \
 cd /opt && \
 git clone https://github.com/KCL-BMEIS/niftyseg.git niftyseg && \
-#git clone git@github.com:KCL-BMEIS/niftyseg.git niftyseg && \
 cd niftyseg && \
 mkdir build-seg && \
 cd build-seg && \
