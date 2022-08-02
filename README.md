@@ -12,7 +12,7 @@ Once the docker is built, you can analyze a raw T1-weighted MRI scan with the fo
 
 'sub-01_T1w_defaced.nii' is the name of the raw T1-weighted MRI scan decompressed in nii format placed in your_data folder, and 'subj01_brain_predicted.age.csv' is the .csv file where the age predictions are saved. 
 
-In this dockerfile, brainageR relies in Octave instead of Matlab. In brainageR we reset the header realigning the input image to MNI to ensure all values are in the proper range. This procedure overwrites the file. 
+In this dockerfile, brainageR relies in Octave instead of Matlab. In brainageR script we reset the header realigning the input image to MNI to ensure all values are in the proper range. This procedure overwrites the file. 
 
 Links for required softwares:
 
