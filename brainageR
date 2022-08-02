@@ -55,6 +55,13 @@ full_path_file=`readlink -f $input_file`
 file_name=`basename -s .nii $full_path_file`
 full_path=`echo $full_path_file | sed -e "s@${file_name}.nii@@"`
 echo $full_path
+
+# We reset the header realigning the input image to MNI to ensure all values are in the proper range
+seg_maths $full_path_file -mul 1 -scl -range $full_path_file
+reg_aladin -ref ${FSLDIR}/data/standard/MNI152_T1_1mm.nii.gz -flo $full_path_file -aff affine.txt -res $full_path_file
+
+echo $full_path
+
 ## check files are uncompressed NIFTI fortmat
 #if [[ $full_path_file != *.nii ]]; then usage; fi
 ## check software environment and attempt to load using module
