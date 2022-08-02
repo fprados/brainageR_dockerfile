@@ -173,5 +173,49 @@ RUN cd /opt/brainageR/software &&\
 
 
 
+# Install the needed packages
+RUN apt-get update
+RUN apt-get install -y --fix-missing \
+  cmake \
+  gcc \
+  g++ \
+  git \
+libeigen3-dev \
+zlib1g-dev \
+libpng-dev \
+openssl* \
+doxygen \
+xvfb \
+curl
 
+# Install NiftyReg and NiftySeg from QNI bitbucket account
+RUN cd /opt && \
+  git clone https://github.com/KCL-BMEIS/niftyreg.git niftyreg && \
+  # git clone git@github.com:KCL-BMEIS/niftyreg.git niftyreg && \
+cd niftyreg && \
+mkdir build-reg && \
+cd build-reg && \
+cmake \
+-D \
+CMAKE_BUILD_TYPE=Release \
+BUILD_SHARED_LIBS=ON \
+BUILD_ALL_DEP=ON \
+USE_OPENMP=ON \
+/opt/niftyreg && \
+make && \
+make install && \
+cd /opt && \
+git clone https://github.com/KCL-BMEIS/niftyseg.git niftyseg && \
+#git clone git@github.com:KCL-BMEIS/niftyseg.git niftyseg && \
+cd niftyseg && \
+mkdir build-seg && \
+cd build-seg && \
+cmake \
+-D \
+CMAKE_BUILD_TYPE=Release \
+BUILD_SHARED_LIBS=ON \
+USE_OPENMP=ON \
+/opt/niftyseg && \
+make && \
+make install
 
