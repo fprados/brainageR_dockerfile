@@ -215,3 +215,4 @@ USE_OPENMP=ON \
 make && \
 make install
 
+RUN chmod +x /opt/brainageR/software/brainageR
