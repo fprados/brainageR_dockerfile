@@ -1,8 +1,8 @@
 FROM ubuntu:16.04
 
-# Create a base docker container that can execute the new version 2.1 of brainageR 
+# Create a base docker container that can execute the new version 2.1 of brainageR
 # https://github.com/james-cole/brainageR
-# Authors: Daniela Furlan and Ferran Prados 
+# Authors: Daniela Furlan and Ferran Prados
 #
 # Example usage:
 #
@@ -20,7 +20,7 @@ RUN apt-get update
 RUN apt-get install -y --fix-missing \
         unzip\
         git \
-        wget 
+        wget
 
 # Install R-package
 RUN apt-get update \
@@ -138,21 +138,21 @@ RUN \
 # Install brainageR
 # Install brainageR zip v2.1 from github
 RUN cd /opt && \
-    wget https://github.com/james-cole/brainageR/archive/refs/tags/2.1.zip 
+    wget https://github.com/james-cole/brainageR/archive/refs/tags/2.1.zip
 
 # BrainageR directory
 RUN cd /opt && \
-    mkdir brainageR 
+    mkdir brainageR
 
 # Unzip 2.1 in brainageR directory
 RUN cd /opt && \
       unzip 2.1.zip  -d /opt/brainageR
-      
+
 # Rename unzipped 2.1 folder (brainageR-2.1)
 RUN cd /opt/brainageR &&\
          mv brainageR-2.1 software
 
-# Substituting brainageR script by a brainageR script with new software directories 
+# Substituting brainageR script by a brainageR script with new software directories
 # Edited variables: brainageR_dir, spm_dir, matlab_path,FSLDIR
 ADD brainageR /opt/brainageR/software
 
@@ -160,16 +160,16 @@ ADD brainageR /opt/brainageR/software
 RUN mkdir -p /data
 
 # Download PCAs
-# pca_center.rds 
+# pca_center.rds
 RUN cd /opt/brainageR/software &&\
       wget  https://github.com/james-cole/brainageR/releases/download/2.1/pca_center.rds
 
 # pca_rotation.rds
 RUN cd /opt/brainageR/software &&\
       wget  https://github.com/james-cole/brainageR/releases/download/2.1/pca_rotation.rds
-# pca_scale.rds 
+# pca_scale.rds
 RUN cd /opt/brainageR/software &&\
-      wget  https://github.com/james-cole/brainageR/releases/download/2.1/pca_scale.rds 
+      wget  https://github.com/james-cole/brainageR/releases/download/2.1/pca_scale.rds
 
 # Install the needed packages
 RUN apt-get update
