@@ -88,7 +88,7 @@ RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y install \
 RUN mkdir /opt/spm12 \
     && curl -SL https://github.com/spm/spm12/archive/refs/tags/r7219.tar.gz \
     | tar -xzC /opt/spm12 --strip-components 1 \
-    && curl -SL https://raw.githubusercontent.com/spm/spm-docker/main/octave/spm12_r7771.patch 
+    && curl -SL https://raw.githubusercontent.com/spm/spm-docker/687c160b9d50100079c8a7decd696d07cf66251a/octave/spm12_r7771.patch 
     
  RUN  make -C /opt/spm12/src PLATFORM=octave distclean \
     && make -C /opt/spm12/src PLATFORM=octave \
